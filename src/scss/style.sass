@@ -1,0 +1,223 @@
+@import "nullstyle.scss", "media/index.sass", "inputs.sass", "buttons.sass", "section.sass", "columns.sass", "container.sass", "flex.sass", "caption.sass", "modal.sass", "menu.sass", "datepicker.scss", "swiper/swiper.scss", "timer.sass"
+
+$space-1: 4px
+$space-2: 10px
+$space-3: 16px
+$space-4: 20px
+$space-5: 28px
+$space-6: 44px
+
+body
+    font-family: 'Montserrat', sans-serif
+    &.is-active
+        overflow: hidden
+
+header
+    position: fixed
+    top: 0
+    left: 0
+    z-index: 100
+    width: 100%
+//map
+#map
+    width: 100%
+    height: 300px
+    +mq-md()
+        height: 700px
+
+.card
+    width: 100%
+    position: relative
+    &--
+        &bordered_left
+            border-left: 1px solid #B5C2D6
+            padding-left: 20px
+        &space_bottom_s
+            padding-bottom: 20px
+        &space_bottom_m
+            padding-bottom: 40px
+        &space_bottom_l
+            padding-bottom: 62px
+        &space_bottom_xl
+            padding-bottom: 76px
+        &space_bottom_xxl
+            padding-bottom: 96px
+        &space_bottom_xxxl
+            padding-bottom: 100px
+            +mq-sm()
+                padding-bottom: 200px
+            +mq-md()
+                padding-bottom: 200px
+            +mq-lg()
+                padding-bottom: 500px
+        &space_top_m
+            padding-top: 32px
+
+        &space_top_l
+            margin-top: 48px
+
+        &bordored_orange
+            border: 1px solid #FF7101
+            position: relative
+
+        &space_around_l
+            padding: 88px 48px
+            +mq-till-lg()
+                padding: 68px 28px 36px 28px
+
+        &space_around_m
+            padding: 44px
+
+    &__
+        &pannel
+            &--
+                &space_left_s
+                    padding-left: 16px
+                &border_left
+                    border-left: 1px solid white
+                &space_right_s
+                    padding-right: 16px
+                &space_bottom_s
+                    padding-bottom: 16px
+                &space_bottom_m
+                    padding-bottom: 24px
+                &space_bottom_l
+                    padding-bottom: 40px
+                &space_bottom_xl
+                    padding-bottom: 52px
+                &space_bottom_mq
+                    +mq-till-lg()
+                        padding-bottom: 16px
+                &width_s
+                    +mq-till-sm()
+                        width: 80px
+                &position_left
+                    position: absolute
+                    top: 0
+                    left: 50%
+                    width: 180px
+                    transform: translate(-50%, -50%)
+                    +mq-lg()
+                        top: 0
+                        left: 30%
+                &position_right
+                    position: absolute
+                    top: 5%
+                    left: 50%
+                    width: 280px
+                    transform: translate(-50%, -50%)
+                    +mq-lg()
+                        top: 0
+                        left: 60%
+                        transform: translate(-20%, -50%)
+
+                &color_white
+                    background: #fff
+                    width: inherrit
+                &plus
+                    border: 1px solid #1C3051
+                    height: 24px
+                    width: 24px
+                    position: relative
+                    border-radius: 2px
+                    cursor: pointer
+
+                    &::after
+                        content: ''
+                        position: absolute
+                        width: 14px
+                        height: 1px
+                        background: #1C3051
+                        top: 10px
+                        left: 4px
+
+                    &::before
+                        content: ''
+                        position: absolute
+                        width: 14px
+                        height: 1px
+                        background: #1C3051
+                        top: 10px
+                        left: 4px
+                        transition: 1s ease-in-out
+                        transform: rotate(90deg)
+
+                    &.is-active::before
+                        transition: 1s
+                        transform: rotate(0deg)
+        &element
+            &--
+                &border_left
+                    border-left: 1px solid #1C3051
+                    margin-left: 12px
+                    padding-top: 20px
+                    padding-bottom: 20px
+                    padding-left: 92px
+                    position: absolute
+                    opacity: 0
+                    z-index: -1
+                    transition: 1s
+                    transform: translateY(-100%)
+            &.is-active
+                transform: translateY(0%)
+                opacity: 1
+                position: static
+                transition: 1s
+                z-index: 0
+
+.aspect-ratio
+    padding-bottom: 90%
+    position: relative
+
+    &__
+        &body
+            position: absolute
+            height: 100%
+
+.icon
+    &--
+        &color_orange
+            color: #FF7101
+        &color_blue
+            color: #1C3051
+            &:hover
+                transition: 0.5s
+                color: #FF7101
+        &color_white
+            color: #fff
+        &size_l
+            font-size: 20px
+        &size_m
+            font-size: 16px
+        &bg_white
+            background: white
+            padding: 8px
+            border-radius: 50%
+
+.triangle
+    color: #FF7101
+    font-size: 12px
+
+.arrow
+    position: relative
+    &__
+        &body
+            position: relative
+            &--
+                &image_1
+                    +mq-till-sm()
+                        position: absolute
+                        transform: scaleX(-1) rotate(90deg)
+
+                        transform-origin: 12% 0%
+                        width: 900px
+                        height: 80px
+                        left: 0%
+                        bottom: 360px
+                &image_2
+                    +mq-till-sm()
+                        margin: 0 auto
+                        padding: 40px 0
+                        transform: scaleX(-1) rotate(90deg)
+
+                        width: 80px

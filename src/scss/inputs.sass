@@ -1,0 +1,74 @@
+@keyframes fadeOut
+    from
+        opacity: 1
+
+    to
+        opacity: 0
+
+.just-validate-tooltip-container
+    position: relative
+
+.just-validate-tooltip-hide
+    animation: fadeOut .5s linear
+    opacity: 0
+
+.js-validate-error-label
+    position: absolute
+    bottom: -20px
+    left: 0
+    z-index: 10
+    background: black
+    border-radius: 4px
+    padding: 4px 8px
+    font-size: 16px
+    pointer-events: none
+    transition: all .4s linear
+
+.js-validate-error-field
+    border-radius: 4px
+
+.input
+    position: relative
+    ::placeholder
+        color: white
+        opacity: 1
+
+    &--
+        &space_mq
+            +mq-till-sm()
+                margin-bottom: 16px
+        &space_bottom_s
+            margin-bottom: 16px
+        &space_bottom_m
+            margin-bottom: 28px
+    &__
+        &item
+            width: 100%
+            &--
+                &transparent
+                    background-color: rgba(255, 255, 255, 0.05)
+                &border_white
+                    border: 1px solid #ffffff52
+                    border-radius: 40px
+                    color: white
+                &space_m
+                    height: 68px
+                    padding: 28px
+                &size_s
+                    height: 52px
+                    padding: 8px 28px
+                &textarea
+                    resize: none
+                    padding: 8px 28px
+                    border-radius: 20px
+                &select
+    option
+        background: rgba(17, 37, 71, 0.911)
+        color: #fff
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button
+    -webkit-appearance: none
+    -moz-appearance: none
+    appearance: none
+    background-color: transparent

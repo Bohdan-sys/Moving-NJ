@@ -1,0 +1,45 @@
+.countdown
+
+.countdown-number
+    width: 80%
+    max-width: 550px
+    margin: 10px auto
+    padding: 1em
+    background: #222121
+    box-shadow: 0 1px 4px rgba(0, 0, 0, .3), -23px 0 20px -23px rgba(0, 0, 0, .8), 23px 0 20px -23px rgba(0, 0, 0, .8), 0 0 40px rgba(0, 0, 0, .1) inset
+    margin: 20px auto
+    width: 80px
+    height: 80px
+    position: relative
+    &::before
+        content: ''
+        position: absolute
+        top: 50%
+        left: 0
+        width: 100%
+        height: 1px
+        background: #222121
+        z-index: 1
+
+    +mq-md()
+        width: 160px
+        height: 160px
+
+    .countdown-time
+        position: absolute
+        top: 50%
+        left: 50%
+        font-size: 44px
+        transform: translate(-50%, -50%)
+        +mq-md()
+            font-size: 100px
+.deadline-message
+    display: none
+    font-size: 24px
+    font-style: italic
+
+.visible
+    display: block
+
+.hidden
+    display: none

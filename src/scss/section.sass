@@ -1,0 +1,126 @@
+$color-light-grey: #f6f5f3 
+$color-grey: #292828
+$color-blue: #1C3051
+$color-white: white
+$color-orange: #FF7101
+
+.section
+    overflow: hidden
+    &--
+        &bg_blue
+            background: $color-blue
+
+        &bg_image_1
+            background: url(../img/boxes.png) no-repeat
+            background-size: cover
+            position: relative
+            z-index: 10
+            margin-top: 80px
+            +mq-md ()
+                margin-top: 120px
+
+            &::before
+                content: ''
+                background: url(../img/man.png) no-repeat
+                position: absolute
+                width: 100%
+                height: 120%
+                top: -2%
+                right: -60%
+                z-index: -1
+
+        &orange_underline
+            border-bottom: 8px solid  $color-orange
+
+        &bg_orange
+            background: $color-orange
+            position: relative
+            z-index: 0
+            +mq-lg ()
+                &::before
+                    content: ''
+                    background: url(../img/woman.png) no-repeat
+                    background-size: contain
+                    position: absolute
+                    width: 100%
+                    height: 120%
+                    z-index: -1
+                    top: 0%
+                    left: -10%
+
+        &bg_light_grey
+            background: $color-light-grey
+
+        &bg_white
+            background: $color-white
+
+        &bg_image_2
+            background: url(../img/form.png) 0% 50% repeat-x
+            background-size: auto 98%
+            position: relative
+
+            &::before
+                content: ''
+                background: $color-orange
+                position: absolute
+                width: 48%
+                height: 100%
+                top: 0%
+                left: 66%
+                z-index: -1
+                transform: translateX(-50%)
+        &bg_orange_line
+            position: relative
+
+            +mq-lg ()
+                &::before
+                    content: ''
+                    background: $color-orange
+                    position: absolute
+                    width: 100%
+                    height: 2px
+                    top: 56%
+                    left: 0%
+                    z-index: -1
+                    +mq-xl ()
+                        top: 58%
+        &bg_image_3
+            background: url(../img/discaunt.png) no-repeat
+            background-size: cover
+
+        &bg_image_4
+            background: url(../img/company.png) 0% 50% repeat-x
+            background-size: auto 98%
+            position: relative
+
+            &::before
+                content: ''
+                background: $color-orange
+                position: absolute
+                width: 48%
+                height: 100%
+                top: 0%
+                left: 40%
+                z-index: -1
+                transform: translateX(-50%)
+
+        &bg_image_5
+            background: url(../img/question.png) no-repeat
+            background-size: cover
+
+        &bg_image_6
+            background: #fff
+            background-size: cover
+            position: relative
+            z-index: 0
+
+            &::before
+                content: ''
+                position: absolute
+                background: url(../img/family.png) 50% 100% no-repeat
+                background-size: contain
+                bottom: 0%
+                right: 0%
+                height: 100%
+                width: 100%
+                z-index: -1

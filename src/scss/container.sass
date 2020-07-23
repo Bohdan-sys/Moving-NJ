@@ -1,0 +1,44 @@
+$mq-small: 576px
+$mq-medium: 768px
+$mq-large: 992px
+$mq-ex-large: 1200px
+
+$space-s: 32px
+$space-m: 40px
+$space-l: 72px
+$space-xl: 96px
+$space-xxl: 106px
+
+%center
+    max-width: 100%
+    margin: 0 auto
+
+.container
+    @extend %center
+
+    +mq-sm ()
+        max-width: $mq-small - 8px
+    +mq-md ()
+        max-width: $mq-medium - 8px
+    +mq-lg ()
+        max-width: $mq-large - 8px
+    +mq-xl ()
+        max-width: $mq-ex-large - 8px
+    &--
+        &space_m
+            padding: $space-m 4px
+        &space_s
+            padding: $space-s 4px
+            +mq-till-md()
+                padding: $space-s - 20px 4px
+        &space_l
+            padding: $space-l 4px
+        &space_xl
+            padding: $space-xl 4px
+
+            +mq-till-md()
+                padding: $space-xl - 56px 4px
+        &space_xxl
+            padding: $space-xxl  4px
+            +mq-till-md()
+                padding: $space-xxl - 66px 4px

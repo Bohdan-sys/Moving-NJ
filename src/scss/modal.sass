@@ -1,0 +1,26 @@
+.modal
+    transition: 1s
+    transform: translateY(-100%)
+    opacity: 0
+    position: absolute
+    left: 0
+    top: 0
+    width: 100%
+    height: 100%
+    background-color: rgba(0,0,0,0.4)
+
+    &.is-active
+        display: block
+        transform: translateY(0%)
+        opacity: 1
+
+    &__
+        &container
+            background-color: #fefefe
+            margin: 20px auto
+            width: 80%
+            padding: 20px
+
+            &--
+                &wrapper
+                    margin-top: 40px

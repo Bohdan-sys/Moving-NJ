@@ -1,0 +1,40 @@
+//imort this for use burger btn
+@import "burger.sass"
+
+.menu 
+    +mq-till-md ()
+        +menu
+
+    &__item 
+        padding: 4px 8px
+        position: relative
+        &::before
+            content: ''
+            position: absolute
+            width: 100%
+            height: 2px
+            bottom: 0
+            left: 0
+            background: #FF7101
+            transform: scaleX(0)
+        &:hover 
+            .caption
+                font-weight: bold
+            &::before
+                transform: scaleX(1)
+                transition: .5s
+           
+
+    +mq-md ()
+        &--appearance-md 
+          
+            height: inherit
+            background: inherit
+            opacity: 1
+            position: static
+            transform: inherit
+            
+      
+
+ 
+           

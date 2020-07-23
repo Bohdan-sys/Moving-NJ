@@ -1,0 +1,49 @@
+$screen-sm: 768px
+$screen-md: 992px
+$screen-lg: 1200px
+
+@mixin orange
+    &:hover
+        background: #b44e00
+        transition: 0.5s
+
+@mixin rotate
+    &:hover
+        transform: rotate(90deg)
+        transition: 0.5s
+
+.button
+    width: 100%
+    position: relative
+
+    &--
+
+        &bg_orange
+            background-color: #FF7101
+            +orange
+        &bg_red
+            background-color: #ff6d6d
+        &bg_transparent
+            background-color: transparent
+            border: 1px solid white
+        &space_l
+            padding: 28px
+        &bg_white
+            background-color: #fff
+        &space_m
+            padding: 16px
+        &border_radius
+            border-radius: 40px
+        &size_l
+            width: 280px
+        &size_m
+            height: 68px
+        &size_s
+            height: 52px
+        &modal_close
+            float: right
+            width: auto
+            margin-bottom: 20px
+            background: transparent
+            &:hover
+                +rotate
