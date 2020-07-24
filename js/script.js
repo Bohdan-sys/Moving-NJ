@@ -3706,7 +3706,6 @@ const toggler = () => {
   }());
 }());
 ;
-
 /**
  * Swiper 6.0.4
  * Most modern mobile touch slider and framework with hardware accelerated transitions
@@ -13040,6 +13039,7 @@ window.addEventListener('DOMContentLoaded', function () {
         burger.addEventListener('click', () => toggler(burger));
         items.forEach((item, i) => { item.addEventListener('click', () => toggler(item)) });
     };
+
     const anchors = document.querySelectorAll('a[href*="#"]');
 
     for (let anchor of anchors) {
@@ -13058,7 +13058,6 @@ window.addEventListener('DOMContentLoaded', function () {
 
     //modal
     openBtn.addEventListener('click', () => openAndInject('iframe.html'));
-    //closeBtn.addEventListener('click', () => toggleContent(''));
     this.addEventListener('mouseup', e => {
         modal.classList.contains('is-active') && e.target.closest('div') != modalContainer || e.target.closest('button') == closeBtn ? toggleContent('') : false
     });
@@ -13081,6 +13080,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
         }
     });
+
     //datepicker
 
     const elem = document.querySelector('input[name="datepicker"]');
@@ -13092,56 +13092,34 @@ window.addEventListener('DOMContentLoaded', function () {
     var deadline = new Date(Date.parse(new Date()) + 33 * 24 * 60 * 60 * 1000); // for endless timer
     initializeClock('countdown', deadline);
 
-
-
-
-
-
-    // const plusCard = document.querySelectorAll('.js-card'),
+    //QA block with hidden elements
     const plusPannel = document.querySelectorAll('.js-card__pannel--plus'),
         cardElement = document.querySelectorAll('.js-card__element'),
         caption = document.querySelectorAll('.js-caption');
 
+    const remover = (element, mod) => {
+        element.classList.remove(mod)
+    };
+
+    const adder = (element, mod) => {
+        element.classList.add(mod)
+    };
+
     plusPannel.forEach((plus, i) => {
 
         plus.addEventListener('click', () => {
-            plusPannel.forEach(pannel => {
-                pannel.classList.remove('is-active')
-            })
-            cardElement.forEach(element => {
-                element.classList.remove('is-active')
-            })
-            caption.forEach(caption => {
-                caption.classList.remove('is-active')
-            })
+            plusPannel.forEach(pannel => remover(pannel, 'is-active'));
+            cardElement.forEach(card => remover(card, 'is-active'));
+            caption.forEach(caption => remover(caption, 'is-active'));
+
             if (plus = cardElement[i]) {
-                cardElement[i].classList.add('is-active');
-                plusPannel[i].classList.add('is-active');
-                caption[i].classList.add('is-active');
+                adder(cardElement[i], 'is-active')
+                adder(plusPannel[i], 'is-active');
+                adder(caption[i], 'is-active');
             }
-        })
-    })
+        });
+    });
 
-
-
-    // plusCard.forEach((card, i) => {
-    //     card.addEventListener('click', () => {
-    //         cardElement.forEach(element => {
-    //             element.classList.remove('is-active')
-    //         })
-    //         plusPannel.forEach(pannel => {
-    //             pannel.classList.remove('is-active')
-    //         })
-    //         caption.forEach(caption => {
-    //             caption.classList.remove('is-active')
-    //         })
-    //         if (card = cardElement[i]) {
-    //             cardElement[i].classList.add('is-active');
-    //             plusPannel[i].classList.add('is-active');
-    //             caption[i].classList.add('is-active');
-    //         }
-    //     })
-    // })
 
     //swiper
 
