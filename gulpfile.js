@@ -5,25 +5,25 @@ let path = {           //object with pathes to the file
     build: {                                 //create final destination folder                           
         html: projectFolder + "/",
         css: projectFolder + "/css/",
-        js: projectFolder + "/js/",
+        // js: projectFolder + "/js/",
         img: projectFolder + "/img/",
         fonts: projectFolder + "/fonts/"
     },
     src: {                                 //find files in source folder                           
         html: [sourceFolder + "/*.html", "!" + sourceFolder + "/_*.html"], //exclude all files, that begins from _ in his name
         css: sourceFolder + "/scss/style.{sass,scss}",
-        js: sourceFolder + "/js/script.js",
+        // js: sourceFolder + "/js/script.js",
         img: sourceFolder + "/img/**/*.{jpg,png,svg,gif,ico,webp}", //search for only image format files
         fonts: sourceFolder + "/fonts/**"          //search for only ttf format fonts
     },
     watch: {                                 //change listening                         
         html: sourceFolder + "/**/*.html", //listen all HTML file etc.
         css: sourceFolder + "/scss/**/*.{sass,scss}",
-        js: sourceFolder + "/js/**/*.js",
+        // js: sourceFolder + "/js/**/*.js",
         img: sourceFolder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
         fonts: sourceFolder + "/fonts/**"
     },
-    clean: "./" + projectFolder + "/"  //object with path to project folder. This obj delete this folder every time? when we run our Gulp
+    // clean: ["./" + projectFolder + "/", "!" + projectFolder + "/js/_*.js"] //object with path to project folder. This obj delete this folder every time? when we run our Gulp
 }
 
 let { src, dest } = require('gulp'),  //scenaries and plugins;
@@ -90,19 +90,19 @@ function css() {
         .pipe(browsersync.stream())     //refresh page     
 }
 
-function js() {                       //collect js function
-    return src(path.src.js)  //callback js files from sourse folder
-        .pipe(fileinclude())   //collect parts of files into one
-        .pipe(dest(path.build.js))
-        /*  .pipe(uglify())
-          .pipe(
-              rename({
-                  extname: ".min.js"
-              })
-          )
-          .pipe(dest(path.build.js))   */             // create new js in final folder  
-        .pipe(browsersync.stream())     //refresh page     
-}
+// function js() {                       //collect js function
+//     return src(path.src.js)  //callback js files from sourse folder
+
+//         .pipe(dest(path.build.js))
+//         /*  .pipe(uglify())
+//           .pipe(
+//               rename({
+//                   extname: ".min.js"
+//               })
+//           )
+//           .pipe(dest(path.build.js))   */             // create new js in final folder  
+//         .pipe(browsersync.stream())     //refresh page     
+// }
 
 function images() {                       //collect img function
     return src(path.src.img)  //callback img files from sourse folder
@@ -121,7 +121,7 @@ function images() {                       //collect img function
 function watchFiles(params) {   //real time watcher for changes in files
     gulp.watch([path.watch.html], html);
     gulp.watch([path.watch.css], css);
-    gulp.watch([path.watch.js], js);
+    // gulp.watch([path.watch.js], js);
     gulp.watch([path.watch.img], images);
     gulp.watch([path.watch.fonts], fonts);
 }
@@ -132,16 +132,16 @@ function fonts() {                       //collect fonts function
         .pipe(browsersync.stream())     //refresh page     
 }
 
-function clean(params) { //function, that clean dist folder
-    return del(path.clean);
-}
+// function clean(params) { //function, that clean dist folder
+//     return del(path.clean);
+// }
 
-let build = gulp.series(clean, gulp.parallel(js, css, html, images, fonts));      //include functions in the execution process
+let build = gulp.series(gulp.parallel(css, html, images, fonts));      //include functions in the execution process
 let watch = gulp.parallel(build, watchFiles, browserSync); // include in gulp
 
 exports.fonts = fonts;
 exports.images = images;
-exports.js = js;
+// exports.js = js;
 exports.css = sass;
 exports.html = html;
 exports.build = build;

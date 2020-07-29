@@ -1,9 +1,10 @@
-@@include('just-validate.js');
-@@include('modal.js');
-@@include('burger.js');
-@@include('datepicker-full.js');
-@@include('swiper-bundle.js');
-@@include('flip.js');
+import JustValidate from './just-validate';
+import './datepicker-full.js';
+import './modal.js';
+import Swiper, { Navigation, Pagination } from 'swiper';
+import { burger, menu, items, toggler } from './burger.js';
+import { initClock } from './flip.js';
+
 
 
 window.addEventListener('DOMContentLoaded', function () {
@@ -31,10 +32,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     //modal
-    openBtn.addEventListener('click', () => openAndInject('iframe.html'));
-    this.addEventListener('mouseup', e => {
-        modal.classList.contains('is-active') && e.target.closest('div') != modalContainer || e.target.closest('button') == closeBtn ? toggleContent('') : false
-    });
+
 
 
     //validator
@@ -64,7 +62,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
     //clock
     var deadline = new Date(Date.parse(new Date()) + 33 * 24 * 60 * 60 * 1000); // for endless timer
-    initializeClock('countdown', deadline);
+    initClock('countdown', deadline);
 
     //QA block with hidden elements
     const plusPannel = document.querySelectorAll('.js-card__pannel--plus'),
@@ -87,7 +85,7 @@ window.addEventListener('DOMContentLoaded', function () {
             caption.forEach(caption => remover(caption, 'is-active'));
 
             if (plus = cardElement[i]) {
-                adder(cardElement[i], 'is-active')
+                adder(cardElement[i], 'is-active');
                 adder(plusPannel[i], 'is-active');
                 adder(caption[i], 'is-active');
             }
@@ -96,7 +94,7 @@ window.addEventListener('DOMContentLoaded', function () {
 
 
     //swiper
-
+    Swiper.use([Navigation, Pagination])
     var swiper = new Swiper('.swiper-container', {
         slidesPerView: 1,
         spaceBetween: 38,

@@ -7,7 +7,8 @@ let openBtn = document.querySelector('.js-button--modal'),
 const getData = (url, method) => {
     return fetch(
         url, {
-        method, method
+        method,
+        method
     }
     ).then(res => res.text())
 };
@@ -37,27 +38,16 @@ const openAndInject = (url, method = 'GET') => {
     })
 };
 
+window.addEventListener('DOMContentLoaded', function () {
+    openBtn.addEventListener('click', () => openAndInject('iframe.html'));
+    this.addEventListener('mouseup', e => {
+        modal.classList.contains('is-active') && e.target.closest('div') != modalContainer || e.target.closest('button') == closeBtn ? toggleContent('') : false
+    });
+
+})
+
 //use in DOM
 
 // openBtn.addEventListener('click', () => openAndInject('iframe.html'));
 // closeBtn.addEventListener('click', () => toggleContent(''));
 // this.addEventListener('mouseup', e => { e.target == modal ? toggleContent('') : false });
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

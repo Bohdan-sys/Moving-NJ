@@ -2,7 +2,7 @@
 2. Open folder with VS code etc.
 3. Run Terminal.
 4. Write npm i in Terminal.
-5. Write Gulp for Start working.
+5. Write 'npm run watch' for Start working.
 
 ___clarifications___
 
